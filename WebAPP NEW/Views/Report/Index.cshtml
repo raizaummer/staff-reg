@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Report>
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container p-5 m-3">
+    <div class="row">
+        <div class="col-8">
+            <h1>Salary Report</h1>
+        </div>
+
+    </div>
+</div>
+
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>UserName</th>
+            <th>Designation</th>
+            
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var obj in Model)
+        {
+            <tr>
+                <td>@obj.Id</td>
+                <td>@obj.UserName</td>
+                <td>@obj.Designation</td>
+               
+                <td>@obj.Salary</td>
+                <td><a asp-controller="ERegistration" asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-success">Edit</a></td>
+                <td><a asp-controller="ERegistration" asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a></td>
+
+            </tr>
+
+        }
+    </tbody>
+</table>
+
